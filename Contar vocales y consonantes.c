@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 
+
 int countVowels(char* phrase){
     int count = 0;
     char c;
@@ -19,8 +20,8 @@ int countConsonants(char* phrase){
     int count = 0;
     char c;
     for(int i = 0; (c = phrase[i]) != '\0'; i++){
-        if((c >= 'a' && c <= 'z') || (c >= 'A' && <= 'Z')){
-            if(!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+        if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
+            if(!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
                  c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')){
                 count++;
                  }
@@ -32,17 +33,17 @@ int countConsonants(char* phrase){
 
 void getInput(char* phrase){
     printf("Pon la palabra qu quieras: ");
-    gets(char* phrase){
-        int i = 0;
-        while(phrase[i] != '\0'){
-            if(phrase[i] == '\0'){
-                phrase[i] = '\0';
-                break;
-            }
-            i++;
+    fgets(phrase, 100, stdin);
+    int i = 0;
+    while(phrase[i] != '\0'){
+        if(phrase[i] == '\n'){
+            phrase[i] = '\0';
+            break;
         }
+        i++;
     }
 }
+
 
 int main()
 {
@@ -57,3 +58,4 @@ int main()
 
     return 0;
 }
+
