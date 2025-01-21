@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public List<Boolean> kidsWithCandies(List<Integer> candies, int extraCandies) {
+        List<Boolean> result = new ArrayList<>();
+        int maxCandies = 0;
+
+        // Encontrar la cantidad máxima de caramelos
+        for (int candy : candies) {
+            if (candy > maxCandies) {
+                maxCandies = candy;
+            }
+        }
+
+        // Verificar para cada niño
+        for (int candy : candies) {
+            // Si al niño se le dan los caramelos extra, ¿tendrá al menos la misma cantidad que el máximo?
+            result.add(candy + extraCandies >= maxCandies);
+        }
+
+        return result;
+    }
+}
